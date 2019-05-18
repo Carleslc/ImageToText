@@ -4,6 +4,8 @@ OCR ([*Optical Character Recognition*](https://en.wikipedia.org/wiki/Optical_cha
 
 The Vision API can detect and extract text from images.
 
+[![ko-fi](https://www.ko-fi.com/img/githubbutton_sm.svg)](https://ko-fi.com/C0C2VFGD)
+
 ## Install
 
 1. Download [Python 3.6+](https://www.python.org/downloads/) or follow [this guide from Google Cloud](https://cloud.google.com/python/setup).

@@ -1,1 +1,4 @@
 theme: jekyll-theme-cayman
+title: ImageToText
+description: OCR with Google's AI technology (Cloud Vision API)
+show_downloads: true
