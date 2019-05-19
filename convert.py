@@ -91,10 +91,6 @@ def detect_document_text(vision_image, language_hints=[], full=False):
     else:
         print()
 
-    def print_full(s):
-        if  full:
-            print(s)
-
     for page in response.full_text_annotation.pages:
         for block in page.blocks:
             if full:
@@ -107,7 +103,8 @@ def detect_document_text(vision_image, language_hints=[], full=False):
 
                 for word in paragraph.words:
                     word_text = ''.join([symbol.text for symbol in word.symbols])
-                    print(f'({f(word.confidence)}) {word_text}')
+                    if full:
+                        print(f'({f(word.confidence)}) {word_text}')
 
                     for symbol in word.symbols:
                         #print(f'\tSymbol: {symbol.text} (confidence: {symbol.confidence})')
