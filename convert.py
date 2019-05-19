@@ -1,8 +1,9 @@
-#!/usr/bin/python3
+#!/usr/local/bin/python3
 # -*- coding: utf-8 -*-
 
-import os
+import os, io
 import argparse
+from collections import deque
 from google.cloud import vision
 from google.oauth2 import service_account
 
@@ -16,6 +17,9 @@ def set_args():
     parser.add_argument("--full", action="store_true", help="show full description (per-word confidence, boundaries, paragraphs...)")
     parser.add_argument("--key", help="explicitly define the path to your service account JSON credentials")
     args = parser.parse_args()
+
+def f(n, decimals=3):
+    return "{:.{}f}".format(n, decimals)
 
 def set_credentials():
     global credentials
@@ -40,15 +44,51 @@ def detect_text(vision_image, language_hints=[], full=False):
         print()
         print(texts[0].description.strip())
 
+def extract_paragraphs(full_text_annotation):
+    breaks = vision.enums.TextAnnotation.DetectedBreak.BreakType
+    paragraphs = []
+    lines = []
+
+    for page in full_text_annotation.pages:
+        for block in page.blocks:
+            for paragraph in block.paragraphs:
+                para = ""
+                line = ""
+                for word in paragraph.words:
+                    for symbol in word.symbols:
+                        line += symbol.text
+                        if symbol.property.detected_break.type == breaks.SPACE:
+                            line += ' '
+                        if symbol.property.detected_break.type == breaks.EOL_SURE_SPACE:
+                            line += ' '
+                            lines.append(line)
+                            para += line
+                            line = ''
+                        if symbol.property.detected_break.type == breaks.LINE_BREAK:
+                            lines.append(line)
+                            para += line
+                            line = ''
+                paragraphs.append(para)
+
+    return deque(paragraphs), lines
+
 def detect_document_text(vision_image, language_hints=[], full=False):
     client = vision.ImageAnnotatorClient(credentials=credentials)
     image_context = vision.types.ImageContext(language_hints=language_hints)
     response = client.document_text_detection(image=vision_image, image_context=image_context)
 
     text = response.text_annotations[0]
+
     print(f"Language: {text.locale}\n")
     print(text.description.strip())
-    if not full:
+
+    if full:
+        paragraphs, lines = extract_paragraphs(response.full_text_annotation)
+        print('\nSINGLE LINE\n')
+        print(' '.join(map(str.strip, lines)))
+        print('\nBLOCKS & PARAGRAPHS\n\n--')
+        print('\n\n'.join(paragraphs) + '\n--')
+    else:
         print()
 
     def print_full(s):
@@ -57,20 +97,22 @@ def detect_document_text(vision_image, language_hints=[], full=False):
 
     for page in response.full_text_annotation.pages:
         for block in page.blocks:
-            print_full(f'\nBlock confidence: {block.confidence}\n')
+            if full:
+                print(f'\nBlock confidence: {f(block.confidence)}')
 
             for paragraph in block.paragraphs:
-                print_full(f'Paragraph confidence: {paragraph.confidence}')
+                if full:
+                    print('\n' + paragraphs.popleft())
+                    print(f'\nParagraph confidence: {f(paragraph.confidence)}')
 
                 for word in paragraph.words:
                     word_text = ''.join([symbol.text for symbol in word.symbols])
-                    print_full(f'Word text: {word_text} (confidence: {word.confidence})')
+                    print(f'({f(word.confidence)}) {word_text}')
 
                     for symbol in word.symbols:
-                        print_full(f'\tSymbol: {symbol.text} (confidence: {symbol.confidence})')
-
+                        #print(f'\tSymbol: {symbol.text} (confidence: {symbol.confidence})')
                         if symbol.confidence < 0.8:
-                            print(f"Possible mistake: symbol '{symbol.text}' in word '{word_text}' (confidence: {symbol.confidence})")
+                            print(f"Possible mistake: symbol '{symbol.text}' in word '{word_text}' (confidence: {f(symbol.confidence)})")
 
 def get_image_file(path):
     with io.open(path, 'rb') as image_file:

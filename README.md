@@ -131,8 +131,8 @@ Una vez ha pasado por el esofago, el alimento entra en el estómago. Si lo que c
 memos contiene hidratos de carbono (azúcares complejos y almidones como los que
 se encuent
 
-Possible mistake: symbol 'o' in word 'esofago' (confidence: 0.46000000834465027)
-Possible mistake: symbol 't' in word 'encuent' (confidence: 0.5299999713897705)
+Possible mistake: symbol 'o' in word 'esofago' (confidence: 0.460)
+Possible mistake: symbol 't' in word 'encuent' (confidence: 0.530)
 ```
 
 With full description: `python3 convert.py --full --document --url https://i.imgur.com/PDpvufk.jpg`
@@ -159,104 +159,276 @@ Una vez ha pasado por el esofago, el alimento entra en el estómago. Si lo que c
 memos contiene hidratos de carbono (azúcares complejos y almidones como los que
 se encuent
 
-Block confidence: 0.9900000095367432
+SINGLE LINE
 
-Paragraph confidence: 0.9900000095367432
-Word text: Existen (confidence: 0.9900000095367432)
-	Symbol: E (confidence: 0.9900000095367432)
-	Symbol: x (confidence: 0.9900000095367432)
-	Symbol: i (confidence: 0.9900000095367432)
-	Symbol: s (confidence: 1.0)
-	Symbol: t (confidence: 1.0)
-	Symbol: e (confidence: 1.0)
-	Symbol: n (confidence: 1.0)
-Word text: otras (confidence: 0.9900000095367432)
-	Symbol: o (confidence: 0.9900000095367432)
-	Symbol: t (confidence: 1.0)
-	Symbol: r (confidence: 0.9900000095367432)
-	Symbol: a (confidence: 1.0)
-	Symbol: s (confidence: 1.0)
-Word text: razones (confidence: 0.9900000095367432)
-	Symbol: r (confidence: 0.9900000095367432)
-	Symbol: a (confidence: 1.0)
-	Symbol: z (confidence: 1.0)
-	Symbol: o (confidence: 0.9900000095367432)
-	Symbol: n (confidence: 1.0)
-	Symbol: e (confidence: 1.0)
-	Symbol: s (confidence: 1.0)
-	
-	...
-	
-	Word text: carbono (confidence: 0.9900000095367432)
-	Symbol: c (confidence: 0.9900000095367432)
-	Symbol: a (confidence: 1.0)
-	Symbol: r (confidence: 1.0)
-	Symbol: b (confidence: 0.9900000095367432)
-	Symbol: o (confidence: 1.0)
-	Symbol: n (confidence: 1.0)
-	Symbol: o (confidence: 1.0)
-Word text: ( (confidence: 0.949999988079071)
-	Symbol: ( (confidence: 0.949999988079071)
-Word text: azúcares (confidence: 0.9900000095367432)
-	Symbol: a (confidence: 0.9900000095367432)
-	Symbol: z (confidence: 0.9900000095367432)
-	Symbol: ú (confidence: 0.9800000190734863)
-	Symbol: c (confidence: 0.9900000095367432)
-	Symbol: a (confidence: 1.0)
-	Symbol: r (confidence: 1.0)
-	Symbol: e (confidence: 0.9900000095367432)
-	Symbol: s (confidence: 1.0)
-Word text: complejos (confidence: 0.9900000095367432)
-	Symbol: c (confidence: 0.9900000095367432)
-	Symbol: o (confidence: 1.0)
-	Symbol: m (confidence: 1.0)
-	Symbol: p (confidence: 0.9900000095367432)
-	Symbol: l (confidence: 1.0)
-	Symbol: e (confidence: 1.0)
-	Symbol: j (confidence: 0.9900000095367432)
-	Symbol: o (confidence: 1.0)
-	Symbol: s (confidence: 1.0)
-Word text: y (confidence: 0.9900000095367432)
-	Symbol: y (confidence: 0.9900000095367432)
-Word text: almidones (confidence: 0.9900000095367432)
-	Symbol: a (confidence: 0.9900000095367432)
-	Symbol: l (confidence: 0.9900000095367432)
-	Symbol: m (confidence: 0.9900000095367432)
-	Symbol: i (confidence: 0.9900000095367432)
-	Symbol: d (confidence: 0.9900000095367432)
-	Symbol: o (confidence: 0.9900000095367432)
-	Symbol: n (confidence: 0.9900000095367432)
-	Symbol: e (confidence: 0.9900000095367432)
-	Symbol: s (confidence: 0.9900000095367432)
-Word text: como (confidence: 0.9900000095367432)
-	Symbol: c (confidence: 0.9900000095367432)
-	Symbol: o (confidence: 1.0)
-	Symbol: m (confidence: 1.0)
-	Symbol: o (confidence: 1.0)
-Word text: los (confidence: 0.9900000095367432)
-	Symbol: l (confidence: 0.9900000095367432)
-	Symbol: o (confidence: 0.9900000095367432)
-	Symbol: s (confidence: 1.0)
-Word text: que (confidence: 0.9900000095367432)
-	Symbol: q (confidence: 0.9900000095367432)
-	Symbol: u (confidence: 1.0)
-	Symbol: e (confidence: 1.0)
+Existen otras razones por las que masticar los alimentos como es debido es algo esencial para nuestro bienestar. Según un fascinante estudio de investigación realizado en la Universidad de Gifu, en Japón, la masticación mejora la memoria al reducir la liberación de las hormonas del estrés. La técnica de formación de imagen por resonancia magnética (IRM) muestra que la masticación estimula el hipocampo, el cual, a su vez, ayuda a controlar los niveles de hormonas del estrés en sangre. El resultado es que el simple acto de masticar reduce tanto el estrés como las hormonas del estrés, de modo que masticar bien los alimentos puede reducir efectivamente el grado de ansiedad. Los científicos japoneses descubrieron también que cuando faltan dientes o éstos se hallan en mal estado, se suele masticar menos. Ello hace que, acto seguido, aumenten los niveles de hormonas del estrés. La conclusión de este estudio es que una buena salud dental y una adecuada masticación son factores muy importantes para conservar la memoria cuando envejecemos y para protegernos de los dañinos efectos del estrés. Una vez ha pasado por el esofago, el alimento entra en el estómago. Si lo que comemos contiene hidratos de carbono (azúcares complejos y almidones como los que se encuent
 
-Block confidence: 0.8899999856948853
+BLOCKS & PARAGRAPHS
 
-Paragraph confidence: 0.8899999856948853
-Word text: se (confidence: 0.9800000190734863)
-	Symbol: s (confidence: 0.9800000190734863)
-	Symbol: e (confidence: 0.9900000095367432)
-Word text: encuent (confidence: 0.8600000143051147)
-	Symbol: e (confidence: 0.8799999952316284)
-	Symbol: n (confidence: 0.9900000095367432)
-	Symbol: c (confidence: 0.9900000095367432)
-	Symbol: u (confidence: 0.8500000238418579)
-	Symbol: e (confidence: 0.8199999928474426)
-	Symbol: n (confidence: 0.9900000095367432)
-	Symbol: t (confidence: 0.5299999713897705)
-Possible mistake: symbol 't' in word 'encuent' (confidence: 0.5299999713897705)
+--
+Existen otras razones por las que masticar los alimentos como es debido es algo esencial para nuestro bienestar. Según un fascinante estudio de investigación realizado en la Universidad de Gifu, en Japón, la masticación mejora la memoria al reducir la liberación de las hormonas del estrés. La técnica de formación de imagen por resonancia magnética (IRM) muestra que la masticación estimula el hipocampo, el cual, a su vez, ayuda a controlar los niveles de hormonas del estrés en sangre. El resultado es que el simple acto de masticar reduce tanto el estrés como las hormonas del estrés, de modo que masticar bien los alimentos puede reducir efectivamente el grado de ansiedad.
+
+Los científicos japoneses descubrieron también que cuando faltan dientes o éstos se hallan en mal estado, se suele masticar menos. Ello hace que, acto seguido, aumenten los niveles de hormonas del estrés. La conclusión de este estudio es que una buena salud dental y una adecuada masticación son factores muy importantes para conservar la memoria cuando envejecemos y para protegernos de los dañinos efectos del estrés.
+
+Una vez ha pasado por el esofago, el alimento entra en el estómago. Si lo que comemos contiene hidratos de carbono (azúcares complejos y almidones como los que
+
+se encuent
+--
+
+Block confidence: 0.990
+
+Existen otras razones por las que masticar los alimentos como es debido es algo esencial para nuestro bienestar. Según un fascinante estudio de investigación realizado en la Universidad de Gifu, en Japón, la masticación mejora la memoria al reducir la liberación de las hormonas del estrés. La técnica de formación de imagen por resonancia magnética (IRM) muestra que la masticación estimula el hipocampo, el cual, a su vez, ayuda a controlar los niveles de hormonas del estrés en sangre. El resultado es que el simple acto de masticar reduce tanto el estrés como las hormonas del estrés, de modo que masticar bien los alimentos puede reducir efectivamente el grado de ansiedad.
+
+Paragraph confidence: 0.990
+(0.990) Existen
+(0.990) otras
+(0.990) razones
+(0.990) por
+(0.990) las
+(0.990) que
+(0.990) masticar
+(0.990) los
+(0.990) alimentos
+(0.990) como
+(0.990) es
+(0.990) debido
+(0.990) es
+(0.990) algo
+(0.990) esencial
+(1.000) para
+(0.990) nuestro
+(0.990) bienestar
+(0.990) .
+(0.990) Según
+(0.990) un
+(0.990) fascinante
+(0.990) estudio
+(1.000) de
+(0.990) investigación
+(0.990) rea
+(0.990) lizado
+(1.000) en
+(0.990) la
+(0.990) Universidad
+(1.000) de
+(0.990) Gifu
+(0.990) ,
+(0.990) en
+(0.990) Japón
+(0.990) ,
+(0.990) la
+(0.990) masticación
+(0.990) mejora
+(0.990) la
+(0.990) memoria
+(0.990) al
+(0.990) reducir
+(0.990) la
+(0.990) liberación
+(1.000) de
+(0.990) las
+(0.990) hormonas
+(0.990) del
+(0.990) estrés
+(0.990) .
+(0.980) La
+(0.990) técnica
+(1.000) de
+(0.990) formación
+(0.990) de
+(0.980) ima
+(0.990) gen
+(0.990) por
+(0.990) resonancia
+(0.990) magnética
+(0.990) (
+(0.990) IRM
+(0.990) )
+(0.990) muestra
+(0.990) que
+(0.990) la
+(0.990) masticación
+(0.990) estimula
+(0.990) el
+(0.990) hi
+(0.990) pocampo
+(0.990) ,
+(0.990) el
+(0.990) cual
+(0.990) ,
+(0.990) a
+(0.990) su
+(1.000) vez
+(0.990) ,
+(0.990) ayuda
+(1.000) a
+(0.990) controlar
+(0.990) los
+(0.990) niveles
+(0.990) de
+(0.990) hormonas
+(0.990) del
+(0.990) estrés
+(0.990) en
+(0.990) sangre
+(0.990) .
+(0.990) El
+(0.980) resultado
+(0.990) es
+(0.990) que
+(1.000) el
+(0.990) simple
+(0.990) acto
+(0.990) de
+(0.990) masticar
+(0.990) reduce
+(0.990) tanto
+(0.990) el
+(0.990) estrés
+(0.990) como
+(0.990) las
+(0.990) hormonas
+(0.990) del
+(0.990) estrés
+(0.990) ,
+(0.970) de
+(0.990) modo
+(0.990) que
+(0.990) masticar
+(0.990) bien
+(0.990) los
+(0.990) alimentos
+(0.990) puede
+(0.990) reducir
+(0.990) efectivamente
+(0.990) el
+(0.990) grado
+(1.000) de
+(0.990) ansiedad
+(0.820) .
+
+Los científicos japoneses descubrieron también que cuando faltan dientes o éstos se hallan en mal estado, se suele masticar menos. Ello hace que, acto seguido, aumenten los niveles de hormonas del estrés. La conclusión de este estudio es que una buena salud dental y una adecuada masticación son factores muy importantes para conservar la memoria cuando envejecemos y para protegernos de los dañinos efectos del estrés.
+
+Paragraph confidence: 0.990
+(0.990) Los
+(0.990) científicos
+(0.990) japoneses
+(0.990) descubrieron
+(0.990) también
+(0.990) que
+(0.990) cuando
+(0.990) faltan
+(0.990) dientes
+(0.990) o
+(0.960) és
+(0.990) tos
+(0.990) se
+(0.990) hallan
+(0.990) en
+(0.990) mal
+(0.990) estado
+(0.990) ,
+(0.990) se
+(0.990) suele
+(0.990) masticar
+(0.990) menos
+(0.990) .
+(0.990) Ello
+(0.990) hace
+(0.990) que
+(0.980) ,
+(0.980) acto
+(0.990) seguido
+(0.980) ,
+(0.990) aumenten
+(0.990) los
+(0.990) niveles
+(1.000) de
+(0.990) hormonas
+(0.990) del
+(0.990) estrés
+(0.990) .
+(0.990) La
+(0.990) conclusión
+(1.000) de
+(0.990) este
+(0.990) estudio
+(0.990) es
+(0.990) que
+(0.990) una
+(0.990) buena
+(0.990) salud
+(0.990) dental
+(0.990) y
+(0.990) una
+(0.990) adecuada
+(0.990) masticación
+(0.990) son
+(0.980) factores
+(0.990) muy
+(0.990) importantes
+(0.990) para
+(0.990) conservar
+(0.990) la
+(0.990) memoria
+(0.990) cuando
+(0.990) envejecemos
+(0.990) y
+(0.990) para
+(0.990) protegernos
+(0.990) de
+(0.990) los
+(0.990) dañinos
+(0.990) efectos
+(0.990) del
+(0.990) estrés
+(0.980) .
+
+Una vez ha pasado por el esofago, el alimento entra en el estómago. Si lo que comemos contiene hidratos de carbono (azúcares complejos y almidones como los que
+
+Paragraph confidence: 0.980
+(0.990) Una
+(0.990) vez
+(0.970) ha
+(0.990) pasado
+(0.990) por
+(1.000) el
+(0.870) esofago
+Possible mistake: symbol 'o' in word 'esofago' (confidence: 0.460)
+(0.900) ,
+(0.970) el
+(0.990) alimento
+(0.990) entra
+(0.990) en
+(0.990) el
+(0.990) estómago
+(0.990) .
+(0.990) Si
+(0.990) lo
+(0.990) que
+(0.990) co
+(0.990) memos
+(0.990) contiene
+(0.990) hidratos
+(0.990) de
+(0.990) carbono
+(0.950) (
+(0.990) azúcares
+(0.990) complejos
+(0.990) y
+(0.990) almidones
+(0.990) como
+(0.990) los
+(0.990) que
+
+Block confidence: 0.890
+
+se encuent
+
+Paragraph confidence: 0.890
+(0.980) se
+(0.860) encuent
+Possible mistake: symbol 't' in word 'encuent' (confidence: 0.530)
 ```
 
 ### Alternative: Use <u>gcloud</u> command
