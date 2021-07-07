@@ -27,7 +27,7 @@ def set_credentials():
 
 def detect_text(vision_image, language_hints=[], full=False):
     client = vision.ImageAnnotatorClient(credentials=credentials)
-    image_context = vision.types.ImageContext(language_hints=language_hints)
+    image_context = vision.ImageContext(language_hints=language_hints)
     response = client.text_detection(image=vision_image, image_context=image_context)
 
     texts = response.text_annotations
@@ -74,7 +74,7 @@ def extract_paragraphs(full_text_annotation):
 
 def detect_document_text(vision_image, language_hints=[], full=False):
     client = vision.ImageAnnotatorClient(credentials=credentials)
-    image_context = vision.types.ImageContext(language_hints=language_hints)
+    image_context = vision.ImageContext(language_hints=language_hints)
     response = client.document_text_detection(image=vision_image, image_context=image_context)
 
     text = response.text_annotations[0]
@@ -114,10 +114,10 @@ def detect_document_text(vision_image, language_hints=[], full=False):
 def get_image_file(path):
     with io.open(path, 'rb') as image_file:
         content = image_file.read()
-    return vision.types.Image(content=content)
+    return vision.Image(content=content)
 
 def get_image_uri(uri):
-    image = vision.types.Image()
+    image = vision.Image()
     image.source.image_uri = uri
     return image
 
