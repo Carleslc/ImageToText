@@ -1,1 +1,7 @@
 service_account.json
+__pycache__/
+*.egg-info/
+build/
+dist/
+.vscode/
+.DS_Store
