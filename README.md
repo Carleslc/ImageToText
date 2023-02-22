@@ -16,6 +16,8 @@ The Vision API can detect and extract text from images.
    pip install -e .
    ```
 
+To uninstall: `pip uninstall ImageToText`
+
 ## Usage
 
 ```
@@ -36,8 +38,6 @@ optional arguments:
   --key KEY             explicitly define the path to your service account JSON credentials
 ```
 
-To uninstall: `pip uninstall ImageToText`
-
 ## Authentication
 
 Follow [these instructions](https://cloud.google.com/vision/docs/detect-labels-image-client-libraries#before-you-begin) to set up a project with the Cloud Vision API enabled:
@@ -45,34 +45,56 @@ Follow [these instructions](https://cloud.google.com/vision/docs/detect-labels-i
 1. [Select or create a Google Cloud Platform project](https://console.cloud.google.com/projectselector2). Project name suggestion: *ImageToText*
 2. [Enable Cloud Vision API for your project](https://console.cloud.google.com/apis/library/vision.googleapis.com).
 3. [Create a service account and get your JSON credentials](https://console.cloud.google.com/iam-admin/serviceaccounts/create). Service account name suggestion: *ImageToText*
-4. [Make sure that billing is enabled for your project](https://console.cloud.google.com/billing/linkedaccount). Pricing is based on [Google Cloud Vision API quota](https://cloud.google.com/vision/pricing#prices): *1,000 requests/month free*
+4. [Make sure that billing is enabled for your project](https://console.cloud.google.com/billing/linkedaccount).
+   
+   Pricing is based on [Google Cloud Vision API quota](https://cloud.google.com/vision/pricing#prices): *1,000 requests/month free*
 
 To authenticate your project you need to reference the service account JSON credentials you just downloaded.
 You have different options to do it, choose what you prefer:
 
-### `service_account.json` file
+### service_account.json file
 
 Rename the JSON you downloaded in step 3 to `service_account.json` and place it inside this repository folder.
 
-### Environment variable
-
-You can [set the ***GOOGLE_APPLICATION_CREDENTIALS*** environmental variable](https://cloud.google.com/docs/authentication/provide-credentials-adc#local-key):
-
-(_bash_) Add to your `.bash_profile` file: `export GOOGLE_APPLICATION_CREDENTIALS="/path/to/service_account.json"`
-
-(_fish_) Add to your `config.fish` file: `set -gx GOOGLE_APPLICATION_CREDENTIALS "/path/to/service_account.json"`
-
 ### `--key` parameter
 
-Another option is to explicitly specify the `--key` parameter on every script execution: `img2txt abbey_road.jpg --key "/path/to/service_account.json"`
+Another option is to explicitly specify the `--key` parameter on every script execution:
+
+`img2txt abbey_road.jpg --key "/path/to/service_account.json"`
+
+### Environment variable
+
+You can also [set the ***GOOGLE_APPLICATION_CREDENTIALS*** environmental variable](https://cloud.google.com/docs/authentication/provide-credentials-adc#local-key):
+
+<details>
+  <summary><a><i>bash</i></a></summary>
+
+  <p>Add to your <code>.bash_profile</code> file:</p>
+  
+  <code>export GOOGLE_APPLICATION_CREDENTIALS="/path/to/service_account.json"</code>
+
+</details>
+
+<details>
+  <summary><a><i>fish</i></a></summary>
+
+  <p>Add to your <code>config.fish</code> file:</p>
+  
+  <code>set -gx GOOGLE_APPLICATION_CREDENTIALS "/path/to/service_account.json"</code>
+
+</details>
 
 ## Examples
 
 ![abbey_road.JPG](https://cloud.google.com/vision/docs/images/abbey_road.JPG)
 
-From file: `img2txt abbey_road.jpg`
+From file:
 
-From any URL from the web: `img2txt --url https://cloud.google.com/vision/docs/images/abbey_road.JPG`
+`img2txt abbey_road.jpg`
+
+From any URL from the web:
+
+`img2txt --url https://cloud.google.com/vision/docs/images/abbey_road.JPG`
 
 ```
 Language: en
@@ -84,7 +106,9 @@ CITY OF WESTMINSTER
 
 ![sign.jpg](https://cloud.google.com/static/vision/docs/images/sign_small.jpg)
 
-From Google Cloud Storage: `img2txt --url gs://cloud-samples-data/vision/ocr/sign.jpg`
+From Google Cloud Storage:
+
+`img2txt --url gs://cloud-samples-data/vision/ocr/sign.jpg`
 
 ```
 Language: en
@@ -96,7 +120,9 @@ YOUR
 ENGINE
 ```
 
-With full description: `img2txt --full --url https://cloud.google.com/static/vision/docs/images/sign_small.jpg`
+With full description:
+
+`img2txt --full --url https://cloud.google.com/static/vision/docs/images/sign_small.jpg`
 
 ```
 Language: en
@@ -130,11 +156,15 @@ ENGINE
 bounds: (213,315),(336,318),(335,340),(212,337)
 ```
 
-![Example image in spanish](https://i.imgur.com/PDpvufk.jpg)
+![Example image in spanish](https://i.imgur.com/7YhDbGf.jpg)
 
-With dense documents: `img2txt --document --url https://i.imgur.com/PDpvufk.jpg`
+With dense documents:
 
-Specify [language hints](https://cloud.google.com/vision/docs/languages) (Optional): `img2txt --document --language "es" --url https://i.imgur.com/PDpvufk.jpg`
+`img2txt --document --url https://i.imgur.com/7YhDbGf.jpg`
+
+Specify [language hints](https://cloud.google.com/vision/docs/languages) (Optional):
+
+`img2txt --document --language "es" --url https://i.imgur.com/7YhDbGf.jpg`
 
 ```
 Language: es
@@ -159,7 +189,9 @@ memos contiene hidratos de carbono (azúcares complejos y almidones como los que
 se encuentran
 ```
 
-With full description: `img2txt --full --document --url https://i.imgur.com/PDpvufk.jpg`
+With full description:
+
+`img2txt --full --document --url https://i.imgur.com/7YhDbGf.jpg`
 
 ```
 Language: es
@@ -461,7 +493,9 @@ Paragraph confidence: 0.912
 
 ![Handwriting example](https://cloud.google.com/static/vision/docs/images/detect_handwriting_OCR-detect-handwriting_SMALL.png)
 
-With handwritten documents: `img2txt --document --url https://cloud.google.com/static/vision/docs/images/detect_handwriting_OCR-detect-handwriting_SMALL.png --confidence 0.7`
+With handwritten documents:
+
+`img2txt --document --url https://cloud.google.com/static/vision/docs/images/detect_handwriting_OCR-detect-handwriting_SMALL.png --confidence 0.7`
 
 ```
 Language: en
@@ -473,7 +507,9 @@ Possible mistake: symbol 'u' in word 'Cloud' (confidence: 0.680)
 Possible mistake: symbol 'P' in word 'Platform' (confidence: 0.639)
 ```
 
-With full description: `img2txt --document --url https://cloud.google.com/static/vision/docs/images/detect_handwriting_OCR-detect-handwriting_SMALL.png --confidence 0.7 --full`
+With full description:
+
+`img2txt --document --url https://cloud.google.com/static/vision/docs/images/detect_handwriting_OCR-detect-handwriting_SMALL.png --confidence 0.7 --full`
 
 ```
 Language: en
@@ -519,11 +555,13 @@ To perform entity analysis, use the [`gcloud ml vision detect-text`](https://clo
 gcloud auth login
 gcloud projects list # check your PROJECT_ID (e.g. imagetotext)
 gcloud config set project imagetotext
-
-gcloud ml vision detect-text "https://cloud.google.com/vision/docs/images/abbey_road.JPG" > abbey_road.txt
 ```
 
-![abbey_road.JPG](https://cloud.google.com/vision/docs/images/abbey_road.JPG)
+![abbey_road.JPG](https://cloud.google.com/vision/docs/images/abbey_road.png)
+
+```
+gcloud ml vision detect-text "https://cloud.google.com/vision/docs/images/abbey_road.JPG" > abbey_road.txt
+```
 
 `abbey_road.txt`
 
