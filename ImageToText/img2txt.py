@@ -6,6 +6,7 @@ import argparse
 from collections import deque
 from google.cloud import vision
 from google.oauth2 import service_account
+from google.api_core import exceptions as google_exceptions
 
 def set_args():
     global args
@@ -24,12 +25,16 @@ def f(n, decimals=3):
 
 def set_credentials():
     global credentials
-    credentials_file = args.key or os.environ.get('GOOGLE_APPLICATION_CREDENTIALS')
-    if not credentials_file:
-        script_dir = os.path.dirname(os.path.realpath(__file__))
-        service_account_json = os.path.join(script_dir, '..', 'service_account.json')
-        if os.path.isfile(service_account_json):
-            credentials_file = service_account_json
+    script_dir = os.path.dirname(os.path.realpath(__file__))
+    service_account_json = os.path.join(script_dir, '..', 'service_account.json')
+
+    if args.key:
+        credentials_file = args.key
+    elif os.path.isfile(service_account_json):
+        credentials_file = service_account_json
+    else:
+        credentials_file = os.environ.get('GOOGLE_APPLICATION_CREDENTIALS')
+
     if credentials_file:
         credentials = service_account.Credentials.from_service_account_file(credentials_file)
     else:
@@ -145,7 +150,15 @@ def main():
     language_hints = args.languages.split(',')
 
     set_credentials()
-    convert(get_image(args.path), language_hints, args.full)
+    
+    try:
+        convert(get_image(args.path), language_hints, args.full)
+    except google_exceptions.ResourceExhausted:
+        raise SystemExit("Error: Google Cloud Vision API quota exceeded. Check your usage at https://console.cloud.google.com/apis/api/vision.googleapis.com/quotas")
+    except google_exceptions.PermissionDenied:
+        raise SystemExit("Error: Access denied. Your quota may be exhausted or billing is not enabled. Check your usage at https://console.cloud.google.com/apis/api/vision.googleapis.com/quotas")
+    except google_exceptions.GoogleAPICallError as e:
+        raise SystemExit(f"Error: Google Cloud Vision API call failed: {e.message}")
 
 if __name__ == "__main__":
     main()

@@ -11,7 +11,7 @@ The Vision API can detect and extract text from images.
 1. Download [Python 3.6+](https://www.python.org/downloads/) or follow [this guide from Google Cloud](https://cloud.google.com/python/setup).
 2. Clone or [download](https://github.com/Carleslc/ImageToText/archive/refs/heads/master.zip) this repository.
 3. Inside this repository, install the `img2txt` script from your terminal:
-   
+  
    ```sh
    pip install -e .
    ```
@@ -46,7 +46,7 @@ Follow [these instructions](https://cloud.google.com/vision/docs/detect-labels-i
 2. [Enable Cloud Vision API for your project](https://console.cloud.google.com/apis/library/vision.googleapis.com).
 3. [Create a service account and get your JSON credentials](https://console.cloud.google.com/iam-admin/serviceaccounts/create). Service account name suggestion: *ImageToText*
 4. [Make sure that billing is enabled for your project](https://console.cloud.google.com/billing/linkedaccount).
-   
+  
    Pricing is based on [Google Cloud Vision API quota](https://cloud.google.com/vision/pricing#prices): *1,000 requests/month free*
 
 To authenticate your project you need to reference the service account JSON credentials you just downloaded.
@@ -70,7 +70,7 @@ You can also [set the ***GOOGLE_APPLICATION_CREDENTIALS*** environmental variabl
   <summary><a><i>bash</i></a></summary>
 
   <p>Add to your <code>.bash_profile</code> file:</p>
-  
+
   <code>export GOOGLE_APPLICATION_CREDENTIALS="/path/to/service_account.json"</code>
 
 </details>
@@ -79,7 +79,7 @@ You can also [set the ***GOOGLE_APPLICATION_CREDENTIALS*** environmental variabl
   <summary><a><i>fish</i></a></summary>
 
   <p>Add to your <code>config.fish</code> file:</p>
-  
+
   <code>set -gx GOOGLE_APPLICATION_CREDENTIALS "/path/to/service_account.json"</code>
 
 </details>
@@ -193,8 +193,10 @@ With full description:
 
 `img2txt --full --document --url https://i.imgur.com/7YhDbGf.jpg`
 
-```
-Language: es
+<details>
+<summary>Output</summary>
+
+<pre><code>Language: es
 
 Existen otras razones por las que masticar los alimentos como es debido es algo
 esencial para nuestro bienestar. Según un fascinante estudio de investigación rea-
@@ -489,7 +491,9 @@ Paragraph confidence: 0.912
 
 (0.951) se
 (0.905) encuentran
-```
+</code></pre>
+
+</details>
 
 ![Handwriting example](https://cloud.google.com/static/vision/docs/images/detect_handwriting_OCR-detect-handwriting_SMALL.png)
 
@@ -557,16 +561,16 @@ gcloud projects list # check your PROJECT_ID (e.g. imagetotext)
 gcloud config set project imagetotext
 ```
 
-![abbey_road.JPG](https://cloud.google.com/vision/docs/images/abbey_road.png)
+![abbey_road.JPG](https://docs.cloud.google.com/vision/docs/images/abbey_road.JPG)
 
 ```
 gcloud ml vision detect-text "https://cloud.google.com/vision/docs/images/abbey_road.JPG" > abbey_road.txt
 ```
 
-`abbey_road.txt`
+<details>
+  <summary><code>abbey_road.txt</code></summary>
 
-```
-{
+<pre><code>{
   "responses": [
     {
       "fullTextAnnotation": {
@@ -1717,4 +1721,6 @@ gcloud ml vision detect-text "https://cloud.google.com/vision/docs/images/abbey_
     }
   ]
 }
-```
+</code></pre>
+
+</details>
